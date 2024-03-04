@@ -1,30 +1,33 @@
 def sum_max(an_array):      
-    total_moves=0   
-    for i in range(0,len(an_array)):        
-            
-        if an_array[i]>10:
-           new_array2= an_array[i]-10
-           total_moves=total_moves+new_array2
-          # print(f" total moves {total_moves}")
-           #return total_moves
-          # print(total_moves)
-        elif an_array[i]<10:
-            my_count2=10-an_array[i]
-            total_moves=total_moves-my_count2
-            print(f"total moves  {my_count2}")
-          #  print(f"total_moves {total_moves}")
-            #return total_moves
-        elif an_array[i]==an_array[i]:
-            total_moves=total_moves+0
-           # print(f"total moves {total_moves}")
-           # return -1
-        #else:print(-1)
-            #print(total_moves)
-    #print(total_moves)
-    print(total_moves)       
-    return total_moves        
-    
-result =sum_max([15,10,8,7])
+     total_moves=0  
+     my_total=sum(an_array)
+     if my_total%10==0:
+         for a in range(0,len(an_array)):
+             if an_array[a]>10:
+                 the_diff=an_array[a]-10
+                 an_array[a]-=the_diff
+                 total_moves+=the_diff
+                 total_moves=all_list(an_array,total_moves,the_diff)
+     else:return -1
+              
+     print(an_array)
+     return total_moves
+
+def all_list(an_array,total_moves,the_diff):
+    for b in range(0,len(an_array)):
+        if an_array[b]<10:
+            the_diff2=10-an_array[b]
+            if the_diff2<=the_diff:
+             an_array[b]+=the_diff2
+             total_moves+=1
+            else:
+                an_array[b]+=the_diff
+                total_moves+=1     
+
+            return total_moves
+
+result =sum_max([11,10,9])
+print(result)
 #print(result)
 max_sum2=[]
 def returns_max_sum(all_ints):    
@@ -37,7 +40,7 @@ def returns_max_sum(all_ints):
     if not  max_sum2:
         return -1
     return max(max_sum2)
-my_result=returns_max_sum([15, 19, 82, 46, 47])
+my_result=returns_max_sum([51, 71, 17, 42])
 print(my_result)
       
        
@@ -52,7 +55,7 @@ def gives_string(an_int,all_list):
          if len(a)==an_int :
           new_list.append(a.lower())     
           
-         else:print(-1)
+         else:continue
           
    return new_list
 result=gives_string(3,all_list2)
