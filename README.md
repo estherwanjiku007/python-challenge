@@ -2,7 +2,7 @@
 
 This is a function that receives an array of integers.The functio should return the minimum number of moves needed to remain with exactly 10 bricks on each integer
 
-### returns_lower_case
+### returns_sum_max
 
 This is a function that receives an array of integers.The funtion should return the maximum sum of two numbers whose sum is a maximum value
 
