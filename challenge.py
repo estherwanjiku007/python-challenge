@@ -10,7 +10,7 @@ def sum_max(an_array):
                  total_moves=all_list(an_array,total_moves,the_diff)
      else:return -1
               
-     print(an_array)
+    # print(an_array)
      return total_moves
 
 def all_list(an_array,total_moves,the_diff):
@@ -26,7 +26,7 @@ def all_list(an_array,total_moves,the_diff):
 
             return total_moves
 
-result =sum_max([11,10,9])
+result =sum_max([7, 15, 10, 8])
 print(result)
 #print(result)
 max_sum2=[]
