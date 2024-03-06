@@ -19,14 +19,14 @@ def all_list(an_array,total_moves,the_diff):
             the_diff2=10-an_array[b]
             if the_diff2<=the_diff:
              an_array[b]+=the_diff2
-             total_moves+=1
+             total_moves+=the_diff2-1
             else:
                 an_array[b]+=the_diff
                 total_moves+=1     
 
             return total_moves
 
-result =sum_max([7, 15, 10, 8])
+result =sum_max([11, 10, 8, 12, 8, 10, 11])
 print(result)
 #print(result)
 max_sum2=[]
