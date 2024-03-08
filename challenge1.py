@@ -1,30 +1,27 @@
-def sum_max(an_array):      
-     total_moves=0  
-     my_total=sum(an_array)
-     if my_total%10==0:
-         for a in range(0,len(an_array)):
-             if an_array[a]>10:
-                 the_diff=an_array[a]-10
-                 an_array[a]-=the_diff
-                 total_moves+=the_diff
-                 total_moves=all_list(an_array,total_moves,the_diff)
-     else:return -1
-              
-    # print(an_array)
-     return total_moves
-
-def all_list(an_array,total_moves,the_diff):
-    for b in range(0,len(an_array)):
-        if an_array[b]<10:
-            the_diff2=10-an_array[b]
-            if the_diff2<=the_diff:
-             an_array[b]+=the_diff2
-             total_moves+=the_diff2-1
-            else:
-                an_array[b]+=the_diff
-                total_moves+=1     
-
-            return total_moves
-
-result =sum_max([11, 10, 8, 12, 8, 10, 11])
-print(result)
+#inputs:a list
+def sum_max(an_array):
+    # checking if possible to have 10 bricks in each box 
+    total_bricks2 = sum(an_array)
+    no_of_boxes2 = len(an_array)
+    if total_bricks2 != 10 * no_of_boxes2:
+        return -1 
+    # keep track of the moves 
+    moves = 0
+    # iterate over the boxes 
+    for i in range(no_of_boxes2):
+        # check each brick for any deficit or excess
+        if an_array[i] > 10:
+            diff = an_array[i] - 10 
+            # if any excess i move the excess to the brick 
+            an_array[i] -= diff
+            an_array[i + 1] += diff            # update my moves 
+            moves += diff
+            #  deficit 
+        elif an_array[i] < 10:
+            diff = 10 - an_array[i]
+            # if any deficit , bring in the diff. from the next box 
+            an_array[i] += diff
+            an_array[i + 1] -=diff
+            moves += diff
+    return moves 
+print(sum_max([7,15,10,8]))
